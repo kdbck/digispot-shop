@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import AddToCartButton from "@/components/AddToCardButton";
 import Section from "@/components/Section";
 import IProduct from "@/interfaces/Product.interface";
 import classNames from "classnames";
@@ -41,9 +41,7 @@ export default async function Home({
           <p className="text-xl font-light mt-1">
             {product.price.toFixed(2)}zł
           </p>
-          <Button className="mt-10 w-full" disabled={!product.isAvailable || product.inventory === 0}>
-            Add to cart
-          </Button>
+          <AddToCartButton product={product} />
         </div>
         <p
           className="text-xs font-light mt-3 ml-1"

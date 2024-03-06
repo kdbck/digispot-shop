@@ -46,14 +46,16 @@ export default function RootLayout({
         <Section
           className="flex justify-between py-6"
         >
-          <Image
-            src={Logo}
-            alt="Digispot Shop"
-            style={{
-              filter: "brightness(0)"
-            }}
-            className="h-10"
-          />
+          <Link href="/">
+            <Image
+              src={Logo}
+              alt="Digispot Shop"
+              style={{
+                filter: "brightness(0)"
+              }}
+              className="h-10"
+            />
+          </Link>
           <div className="flex items-center gap-2">
             {categories.map(({ name, slug }) => (
               <Link

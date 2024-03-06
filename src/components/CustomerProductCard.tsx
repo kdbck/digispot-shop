@@ -15,6 +15,7 @@ const CustomerProductCard = ({ product }: { product: IProduct }) => {
         onClick={() => {
           toast(`${product.name} added to cart`)
         }}
+        disabled={!product.isAvailable || product.inventory === 0}
       >
         Add to cart
       </Button>

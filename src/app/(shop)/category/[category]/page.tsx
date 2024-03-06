@@ -7,6 +7,7 @@ export default async function Home({
 }: { params: { category: string } }) {
   const response = await fetch(`${process.env.API_URL}/api/products?category=${params.category}`, {
     method: "GET",
+    cache: "no-store"
   });
   const products = await response.json() as IProduct[];
   return (

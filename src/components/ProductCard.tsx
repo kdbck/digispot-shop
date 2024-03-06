@@ -19,7 +19,7 @@ const ProductCard = ({ product, className, children }: ProductCardProps) => {
       )}
     >
       <Link
-        href={`/product/${product.handle}`}
+        href={`/products/${product.handle}`}
         className={classNames(
           "h-40 bg-neutral-100 rounded-2xl w-full flex items-center justify-center",
           "hover:opacity-75 active:opacity-50 duration-150"
@@ -39,7 +39,7 @@ const ProductCard = ({ product, className, children }: ProductCardProps) => {
       </Link>
       <Link
         className="text-neutral-800 text-lg mt-2"
-        href={`/product/${product.handle}`}
+        href={`/products/${product.handle}`}
       >
         {product.name}
       </Link>

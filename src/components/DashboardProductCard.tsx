@@ -18,7 +18,8 @@ const DashboardProductCard = ({
     try {
       setIsRemoveLoading(true);
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products/${product.handle}`, {
-        method: "DELETE"
+        method: "DELETE",
+        cache: "no-store"
       });
       if (!response.ok) {
         toast.error("Failed to remove product");

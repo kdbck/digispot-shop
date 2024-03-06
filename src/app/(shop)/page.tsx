@@ -4,7 +4,8 @@ import CustomerProductCard from "@/components/CustomerProductCard";
 
 export default async function Home() {
   const response = await fetch(`${process.env.API_URL}/api/products`, {
-    method: "GET"
+    method: "GET",
+    cache: "no-store"
   });
   const products = await response.json() as IProduct[];
   return (

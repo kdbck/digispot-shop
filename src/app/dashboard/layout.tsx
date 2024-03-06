@@ -27,14 +27,16 @@ export default function RootLayout({
         <Section
           className="flex justify-between py-6"
         >
-          <Image
-            src={Logo}
-            alt="Digispot Shop"
-            style={{
-              filter: "brightness(0)"
-            }}
-            className="h-10"
-          />
+          <Link href="/">
+            <Image
+              src={Logo}
+              alt="Digispot Shop"
+              style={{
+                filter: "brightness(0)"
+              }}
+              className="h-10"
+            />
+          </Link>
           <Link
             href="/dashboard/new-product"
           >

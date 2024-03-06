@@ -3,6 +3,15 @@ import connectToDb from "@/helpers/connectToDb"
 import productValidationSchema from "@/helpers/productValidationSchema"
 import { MongoServerError } from "mongodb"
 
+const isMongoServerError = (error: any): error is MongoServerError => {
+  return (
+    error &&
+    typeof error === 'object' &&
+    'name' in error &&
+    error.name === 'MongoServerError'
+  )
+}
+
 export async function GET() {
   await connectToDb()
   const products = await Product.find()
@@ -26,7 +35,7 @@ export async function POST(request: Request) {
     const product = await Product.create(body)
     return Response.json(product.toJSON())
   } catch (error) {
-    if (error instanceof MongoServerError) {
+    if (isMongoServerError(error)) {
       return Response.json({ message: error.message, code: error.code }, { status: 400 })
     }
     return Response.json({ message: "Internal error" }, { status: 500 })

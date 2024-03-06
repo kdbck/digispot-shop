@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { Toaster } from "sonner";
 import Button from "@/components/Button";
 import Section from "@/components/Section";
 import Link from "next/link";
 import Image from "next/image";
 import classNames from "classnames";
+import Logo from '../../../public/logo.svg';
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -42,32 +43,30 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={classNames(montserrat.className, 'flex flex-col items-center')}>
-      <Section
-        className="flex justify-between py-6"
-      >
-        <Image
-          src="/logo.svg"
-          alt="Digispot Shop"
-          width={200}
-          height={50}
-          style={{
-            filter: "brightness(0)"
-          }}
-          className="h-10"
-        />
-        <div className="flex items-center gap-2">
-          {categories.map(({ name, slug }) => (
-            <Link
-              key={slug}
-              href={`/category/${slug}`}
-              className="text-neutral-800 font-light"
-            >
-              {name}
-            </Link>
-          ))}
-          <Button className="ml-4">Cart</Button>
-        </div>
-      </Section>
+        <Section
+          className="flex justify-between py-6"
+        >
+          <Image
+            src={Logo}
+            alt="Digispot Shop"
+            style={{
+              filter: "brightness(0)"
+            }}
+            className="h-10"
+          />
+          <div className="flex items-center gap-2">
+            {categories.map(({ name, slug }) => (
+              <Link
+                key={slug}
+                href={`/category/${slug}`}
+                className="text-neutral-800 font-light"
+              >
+                {name}
+              </Link>
+            ))}
+            <Button className="ml-4">Cart</Button>
+          </div>
+        </Section>
         {children}
         <Toaster />
       </body>

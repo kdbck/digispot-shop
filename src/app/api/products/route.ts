@@ -12,9 +12,13 @@ const isMongoServerError = (error: any): error is MongoServerError => {
   )
 }
 
-export async function GET() {
+export async function GET(request: Request) {
+  const searchParams = new URL(request.url).searchParams
+  const category = searchParams.get("category")
   await connectToDb()
-  const products = await Product.find()
+  const products = await Product.find({
+    ...(category ? { category } : {})
+  })
   return Response.json(products.map(product => product.toJSON()))
 }
 

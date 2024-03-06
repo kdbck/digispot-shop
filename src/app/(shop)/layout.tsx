@@ -64,7 +64,6 @@ export default function RootLayout({
                 {name}
               </Link>
             ))}
-            <Button className="ml-4">Cart</Button>
           </div>
         </Section>
         {children}

@@ -5,6 +5,7 @@ interface IProduct {
   category: string;
   price: number;
   inventory: number;
+  isAvailable: boolean;
   __v: number;
 }
 

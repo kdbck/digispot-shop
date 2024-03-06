@@ -24,7 +24,7 @@ export async function PATCH(
   if (!productData) {
     return Response.json({ message: "Missing body" }, { status: 400 })
   }
-  if (productData.handle) {
+  if (productData.handle && productData.handle !== handle) {
     return Response.json({ message: "You can't change the handle" }, { status: 400 })
   }
   try {

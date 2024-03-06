@@ -1,12 +1,9 @@
 import Section from "@/components/Section";
 import IProduct from "@/interfaces/Product.interface";
-import Image from "next/image";
-import Link from "next/link";
-import Button from "@/components/Button";
 import CustomerProductCard from "@/components/CustomerProductCard";
 
 export default async function Home() {
-  const response = await fetch("http://localhost:3000/api/products", {
+  const response = await fetch(`${process.env.API_URL}/api/products`, {
     method: "GET"
   });
   const products = await response.json() as IProduct[];

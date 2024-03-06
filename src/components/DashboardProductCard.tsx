@@ -17,7 +17,7 @@ const DashboardProductCard = ({
   const removeProduct = async () => {
     try {
       setIsRemoveLoading(true);
-      const response = await fetch(`http://localhost:3000/api/products/${product.handle}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products/${product.handle}`, {
         method: "DELETE"
       });
       if (!response.ok) {
@@ -40,7 +40,7 @@ const DashboardProductCard = ({
     >
       <Link
         className="w-full"
-        href={`/products/${product._id}`}
+        href={`/dashboard/products/${product.handle}/edit`}
       >
         <Button
           className="w-full mt-4"
